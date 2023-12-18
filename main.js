@@ -1,30 +1,49 @@
+const counter = document.querySelector(".counter");
+const btnInc = document.querySelector(".btn-inc");
+const btnDec = document.querySelector(".btn-dec");
+const btnClr = document.querySelector(".btn-clr");
+const number = document.querySelector(".number");
 
-let num = 0;
+let countNum = 0;
 
-pgUp = () => {
-    num += 1
-    onCounter()
-}
+const updateCounter = (n) => {
+  if (countNum + n < 0) {
+    return;
+  }
+  countNum += n;
+  number.textContent = countNum;
+};
+
+btnInc.addEventListener("click", () => updateCounter(1));
+btnDec.addEventListener("click", () => updateCounter(-1));
+btnClr.addEventListener("click", () => updateCounter(-countNum));
 
 
-pgDown = () => {
+// let num = 0;
 
-    if (num > 0) {
-        num -= 1
-    }
+// pgUp = () => {
+//     num += 1
+//     onCounter()
+// }
 
-    onCounter()
-}
+// pgDown = () => {
 
-pgCls = () => {
+//     if (num > 0) {
+//         num -= 1
+//     }
 
-    num = 0
-    onCounter()
-}
+//     onCounter()
+// }
 
-const onCounter = () => {
+// pgCls = () => {
 
-    result.innerText = num;
-}
+//     num = 0
+//     onCounter()
+// }
 
-const result = document.getElementById("num");
+// const onCounter = () => {
+
+//     result.innerText = num;
+// }
+
+// const result = document.getElementById("num");
